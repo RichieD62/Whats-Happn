@@ -3,19 +3,65 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cool Awesome Web App Thingy</title>
+    <title>
+        
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
 <body>
+
+    <h1>Eventbrite API Test Search Prototype</h1>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 border">
-                foo
-            </div>
-        </div>
+        <select name="What's Happ'n">
+        <option value="Concert">Concert</option>
+        <option value="Sports Game">Sports Game</option>
+        </select>
+
+        <!-- user_Input for zip code search -->
+        <!-- Create objects of the stuff being stored-->
+
+        <button class="button">Search</button>
+
+        <div id="eventbrite"></div>
+
     </div>
     
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/17920884849/?token=LTIANDPJGDKZMQDL556K",
+    "method": "GET",
+    "headers": {}
+}
+
+$.ajax(settings).done(function (data) {
+    console.log(data);
+    var content = "<h2>" + data.name.text + "</h2>" + data.description.html;
+    $("#eventbrite").append(content);
+});
+
+
+
+</script>
+
+// Build a search functionality that appends an eventbrite event when calling upon events in a specific location (zip code?) //
+
+// Key: PSJFYKURAB7TWNQQWM
+// Client Secret: WVYK4K3XVNP3M65JK3VPPLYSIKWLSZKIJTMZZGJIMCD7Z4DLLP
+// Personal OAuth Token: XULTWWH3UA4AH7NLB6KA
+// Anonymous Access 0Auth Token: LTIANDPJGDKZMQDL556K
+// Quick Start Guide: https://www.eventbrite.com/developer/v3/quickstart/
+// Help: https://idratherbewriting.com/learnapidoc/docapis_eventbrite_example.html
+// API: https://www.eventbriteapi.com/v3/users/me/?token=XULTWWH3UA4AH7NLB6KA
+
+// https://www.eventbriteapi.com/v3/events/search/?token=XULTWWH3UA4AH7NLB6KA
+
 </body>
 </html>
+
