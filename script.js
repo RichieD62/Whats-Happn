@@ -1,14 +1,29 @@
 
 
-var userInput = $("#location").val();
+$(document).ready(function () {
 
-var queryURL = "https://api.seatgeek.com/2/events?client_id=9a54676ab29b8413937016dcd39f5dc547e3eb789ef08953571955a8c8cd88d4"
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function(response) {
-    var results = response.data;
-    console.log(results);
-})
+    function submit() {
+        $("#submit-button").on("click", function (event) {
 
+            event.preventDefault();
+
+           
+            var userInput = $("#location").val()
+            var queryURL = "https://api.seatgeek.com/2/venues?&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&postal_code=" + userInput 
+
+            console.log(userInput);
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                var results = response.data;
+                console.log(response);
+            });
+        });
+    };
+
+    submit();
+
+});
