@@ -10,7 +10,7 @@ $(document).ready(function () {
 
            
             var userInput = $("#location").val()
-            var queryURL = "https://api.seatgeek.com/2/venues?&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&postal_code=" + userInput 
+            var queryURL = "https://api.seatgeek.com/2/events?&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&postal_code=" + userInput 
 
             console.log(userInput);
 
@@ -18,8 +18,30 @@ $(document).ready(function () {
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
-                var results = response.data;
                 console.log(response);
+
+                for (var i=0; i<response.events.length; i++){
+                    var event = {
+                        name: response.events[i].title,
+                        dateTime: response.events[i].datetime_local,
+                        venue: response.events[i].venue.name,
+                        address: response.events[i].venue.address,
+                        tickets: response.events[i].url
+                    };
+
+                    console.log(event);
+                    
+                    // console.log("Look at these events: " + response.events[i].title);
+                    // console.log("Look at these dates and times: " + response.events[i].datetime_local);
+                    // console.log("Look at this link to tickets: " + response.events[i].url);
+                    // console.log("Look at this venue: " + response.events[i].venue.name);
+                    // console.log("Look at this address: " + response.events[i].venue.address);
+                    // console.log("Event: " + response.events[i].title);
+
+                    //console log link to tix
+                    //console log another thing
+                    //store in an object 
+                }
             });
         });
     };
