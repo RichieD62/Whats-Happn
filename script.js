@@ -21,6 +21,8 @@ $(document).ready(function () {
                 console.log(response);
 
                 for (var i=0; i<response.events.length; i++){
+                    var newDiv = $("<div class='item'>");
+
                     var event = {
                         name: response.events[i].title,
                         dateTime: response.events[i].datetime_local,
@@ -29,6 +31,15 @@ $(document).ready(function () {
                         tickets: response.events[i].url
                     };
 
+                    var pEvent = $("<p>").text("Event: " + event.name);
+                    var pDateTime = $("<p>").text("Date and Time: " + event.dateTime);
+                    var pVenue = $("<p>").text("Venue: " + event.venue);
+                    var pAddress = $("<p>").text("Address: " + event.address);
+                    var pTix = $("<p>").text("Tickets: " + event.tickets);
+
+
+                    newDiv.prepend(pEvent, pDateTime, pVenue, pAddress, pTix);
+                    $("#display-here").prepend(newDiv);
                     console.log(event);
                     
                     // console.log("Look at these events: " + response.events[i].title);
