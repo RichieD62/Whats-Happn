@@ -1,67 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>What's Happ'n</title>
+     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+        <a class="navbar-brand" href="#">Search Events</a>
+    </nav> 
+     <div class="container search-wrapper">
+               <div id="search-events" class="card card-body">
+                   <h1 class="text-center">Search for Events by Name or City</h1>
 
-    <h1>Eventbrite API Test Search Prototype</h1>
-    <div class="container">
-        <select name="What's Happ'n">
-        <option value="Concert">Concert</option>
-        <option value="Sports Game">Sports Game</option>
-        </select>
+                   <div class="form-group">
+                        <label for="event-name">Search by Name or City</label>
+                        <input type="text" id="event-name" class="form-control" placeholder="Search By Name or City"> 
+                    </div>
+                     
+                   <div class="form-group">
+                        <label for="category">Category</label>
+                        <select class="form-control" id="category"></select>
+                    </div>
 
-        <!-- user_Input for zip code search -->
-        <!-- Create objects of the stuff being stored-->
-
-        <button class="button">Search</button>
-
-        <div id="eventbrite"></div>
-
-    </div>
+                    <div class="form-group">
+                        <input type="submit" class="mt-5 form-control btn btn-success" id="submitBtn" value="Search">
+                    </div>
+                   
+               </div>  
+               <div id="result" class="row mt-5"></div>
+           </div>
+       
+           <footer class="mt-5 p-3 text-center bg-primary">
+           </footer>
     
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<script>
-
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://www.eventbriteapi.com/v3/events/17920884849/?token=LTIANDPJGDKZMQDL556K",
-    "method": "GET",
-    "headers": {}
-}
-
-$.ajax(settings).done(function (data) {
-    console.log(data);
-    var content = "<h2>" + data.name.text + "</h2>" + data.description.html;
-    $("#eventbrite").append(content);
-});
-
-
-
-</script>
-
-// Build a search functionality that appends an eventbrite event when calling upon events in a specific location (zip code?) //
-
-// Key: PSJFYKURAB7TWNQQWM
-// Client Secret: WVYK4K3XVNP3M65JK3VPPLYSIKWLSZKIJTMZZGJIMCD7Z4DLLP
-// Personal OAuth Token: XULTWWH3UA4AH7NLB6KA
-// Anonymous Access 0Auth Token: LTIANDPJGDKZMQDL556K
-// Quick Start Guide: https://www.eventbrite.com/developer/v3/quickstart/
-// Help: https://idratherbewriting.com/learnapidoc/docapis_eventbrite_example.html
-// API: https://www.eventbriteapi.com/v3/users/me/?token=XULTWWH3UA4AH7NLB6KA
-
-// https://www.eventbriteapi.com/v3/events/search/?token=XULTWWH3UA4AH7NLB6KA
-
+          <script src="js/script.js"></script>
+           <style>
+      
+                footer {
+                     color: white;
+                }
+           </style>
 </body>
 </html>
-
