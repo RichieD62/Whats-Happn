@@ -29,36 +29,14 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 main-div">
-                <div class="Modal">
-                    <div class="modal-content" id="create-user-div">
-                        <div class="modal-header">
-                            <h3>Create Your Account</h3>
-                            <span class="close">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                            <input type="email" placeholder="coolguy@happn.com" id="new-email"><br>
-                            <input type="password" placeholder="password" id="new-password"><br>
-                            <button type="submit" onclick="newUser">Create Account</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="login-div">
-                <h3>Log in to See what's Happ'n</h3>
-                <p>new user? <a id="create-user" href="#">click here</a></p>
-                <input type="email" placeholder="coolguy@happn.com" id="email"><br>
-                <input type="password" placeholder="password" id="password"><br>
-                <button type="submit" onclick="login">Login</button>
-            </div>
-            <div id="user-div">
-                <h3 id=welcome-msg>Welcome back! Click to see what's Happ'n</h3>
-                <button onclick="logout">Logout</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 class="text-center">Login</h1>
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
             </div>
         </div>
-    </div>
     </div>
 
 </body>
