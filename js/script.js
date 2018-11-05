@@ -19,7 +19,6 @@ class EventBrite {
          }
     }
 
-
     // Get categories from API
     async getCategoriesAPI() {
          // Query the API
