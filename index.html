@@ -1,110 +1,76 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>What's Happ'n</title>
-     <link rel="stylesheet" href="css/bootstrap.css">
-=======
-<html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cool Awesome Web App Thingy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- JQuery -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What's Happ'n</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/login.js"></script>
+    <script src="js/script.js"></script>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-        crossorigin="anonymous">
-
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-
-    <!-- Custom stylesheets-->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/firebase.js"></script>
-
->>>>>>> login-page
 </head>
 
 <body>
-<<<<<<< HEAD
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-        <a class="navbar-brand" href="#">Search Events</a>
-    </nav> 
-     <div class="container search-wrapper">
-               <div id="search-events" class="card card-body">
-                   <h1 class="text-center">What's Happ'n?</h1>
-                   <h3 class="text-center">Search for Events by Name or City</h3>
-                   <div class="form-group">
-                        <label for="event-name">Search by Name or City</label>
-                        <input type="text" id="event-name" class="form-control" placeholder="Search By Name or City"> 
-                    </div>
-                     
-                   <div class="form-group">
-                        <label for="category">Category</label>
-                        <select class="form-control" id="category"></select>
-                    </div>
-
-                    <hr>
-
-                    <div class="form-group">
-                        <label
-                        for="zip">Zip Code</label>
-                        <input type="text"
-                        id="zip-code"
-                        class="form-control"
-                        placeholder="Search By Zip Code">
-                    </div>
-
-                
-
-                    <div class="form-group">
-                        <input type="submit" class="mt-5 form-control btn btn-success" id="submitBtn" value="Search">
-                    </div>
-                   
-               </div>  
-               <div id="result" class="row mt-5"></div>
-           </div>
-       
-           <footer class="mt-5 p-3 text-center bg-primary">
-           </footer>
-    
-          <script src="js/script.js"></script>
-           <style>
-      
-                footer {
-                     color: white;
-                }
-           </style>
-</body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="script.js"></script>
-
-=======
-    <div class="container">
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1 class="text-center">Login</h1>
-                <div id="firebaseui-auth-container"></div>
-                <div id="loader">Loading...</div>
-            </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="text-center">Login</h1>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
         </div>
     </div>
 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+        <a class="navbar-brand" href="#">Search Events</a>
+    </nav>
+    <div class="container search-wrapper">
+        <div id="search-events" class="card card-body">
+            <h1 class="text-center">Search for Events by Name or City</h1>
+
+            <div class="form-group">
+                <label for="event-name">Search by Name or City</label>
+                <input type="text" id="event-name" class="form-control" placeholder="Search By Name or City">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select class="form-control" id="category"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip-code" class="form-control" placeholder="Search By Zip Code">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="mt-5 form-control btn btn-success" id="submitBtn" value="Search">
+            </div>
+        </div>
+        <div>
+            <h3>Login to save your favorite events</h3>
+            <button id="myBtn">Login</button>
+
+        </div>
+        <div id="result" class="row mt-5"></div>
+    </div>
+
+    <footer class="mt-5 p-3 text-center bg-primary">
+    </footer>
+
+    <script src="js/script.js"></script>
+    <style>
+        footer {
+            color: white;
+        }
+    </style>
 </body>
 
->>>>>>> login-page
 </html>
