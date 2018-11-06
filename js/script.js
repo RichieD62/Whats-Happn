@@ -136,7 +136,7 @@ const ui = new UI();
 
 
 // Listener for the submit button
-document.getElementById('submitBtn').addEventListener('click', (e) => {
+document.getElementById("submitBtn").addEventListener('click', (e) => {
      e.preventDefault();
 
      // get values from form
