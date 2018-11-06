@@ -1,3 +1,4 @@
+
 class EventBrite {
     // Constructor when instanciate
     constructor() {
@@ -13,6 +14,8 @@ class EventBrite {
          // Wait for response and return as json
 
          const events = await eventsResponse.json();
+
+         // const events2 = await eventsResponse2.json();
 
          return {
               events
@@ -70,10 +73,12 @@ class UI {
                                        <h2 class="text-center card-title">${eventInfo.name.text}</h2>
                                        <p class="lead text-info">Event Information:</p>
                                        <p>${eventInfo.description.text.substring(0,200)}...</p>
-                                       <span class="badge badge-primary">Capacity: ${eventInfo.capacity}</span>
-                                       <span class="badge badge-secondary">Date & Time: ${eventInfo.start.local}</span>
+                                       <span class="badge badge-primary">Date & Time: ${eventInfo.start.local}</span>
 
                                        <a href="${eventInfo.url}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
+
+                                       <a href=${eventInfo.url}"target="_blank" class="btn btn-alert alert-danger btn-block mt-4">Add To Favorites</a>
+                                       
                                   </div>
                              </div>
                         </div>
@@ -136,8 +141,8 @@ const ui = new UI();
 
 
 // Listener for the submit button
-document.getElementById("submitBtn").addEventListener('click', (e) => {
-     e.preventDefault();
+document.getElementById('submitBtn').addEventListener('click', (e) => {
+     
 
      // get values from form
      const eventName = document.getElementById('event-name').value;
@@ -160,8 +165,6 @@ document.getElementById("submitBtn").addEventListener('click', (e) => {
                     }
                })
 
-     } else {
-          // Print a message
-          ui.printMessage('Add an Event or City', 'text-center alert alert-danger mt-4');
-     }
+     } 
+     
 })
