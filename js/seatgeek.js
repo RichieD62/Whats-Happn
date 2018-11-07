@@ -5,7 +5,8 @@ function submit() {
        
         var userInput = $("#event-name").val()
         var userZip = $("#zip-code").val()
-        var queryURL = "https://api.seatgeek.com/2/events?&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&venue.postal_code=" + userZip
+        var queryURL = "https://api.seatgeek.com/2/events?venue.postal_code=" + userZip + "&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&";
+        
 
 
         $.ajax({
