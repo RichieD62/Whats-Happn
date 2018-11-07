@@ -35,3 +35,21 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+#myBtn { 
+    margin-left: 55px;
+}
+
+#loginDiv {
+    text-align: center;
+}
+
+#logo {
+    height:200px;
+    width: 200px;
+    margin-left: -30px;
+}
+
+#skyline {
+    background-image: url("../images/skyline.jpg");
+}
