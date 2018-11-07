@@ -1,6 +1,6 @@
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
-function writeUserData(userId, name, email, imageUrl) {
+function writeUserData(userId, name, email) {
     firebase.database().ref('users/' + userId).set({
       username: name,
       email: email
