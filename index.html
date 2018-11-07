@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>What's Happ'n</title>
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/script.js"></script>
-        <script src="js/script2.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What's Happ'n</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/login.js"></script>
+    <script src="js/eventbrite.js"></script>
+    <script src="js/seatgeek.js"></script>
 
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-            <a class="navbar-brand" href="#">Search Events</a>
-        </nav>
-
-        <div class="container">
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h1 class="text-center">Login</h1>
-                    <div id="firebaseui-auth-container"></div>
-                    <div id="loader">Loading...</div>
-                </div>
-            </div>
+<div class="container">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="text-center">Login</h1>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
         </div>
-
+    </div>
+</div>
         <div class="container search-wrapper">
             <div id="search-events" class="card card-body">
                 <h1 class="text-center">What's Happ'n?</h1>
@@ -75,7 +71,6 @@
     <footer class="mt-5 p-3 text-center bg-primary">
     </footer>
 
-    <script src="js/script.js"></script>
     <style>
         footer {
             color: white;
