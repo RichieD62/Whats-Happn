@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         firebase.database().ref('users/' + user.uid).set({
             userId: user.uid,
-            favorties: addFavorite
+            favorties: favorites
         })
     }
     // }
