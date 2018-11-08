@@ -15,8 +15,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     // }
 })
 
-
-
 function addFavorites() {
     $("#result").on("click", ".favorite", function () {
         var addFavorite = $(this).parent().parent()
@@ -31,6 +29,10 @@ function addFavorites() {
         // return addFavorite
     })
 }
+
+$(document).ready(function () {
+    addFavorites()
+})
 
 
 function logout() {
