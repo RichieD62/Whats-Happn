@@ -11,10 +11,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             userId: user.uid,
             favorties: favorites
         })
+        addFavorites(user)
     }
-    // }
-    return user
-})
+});
+
 
 function addFavorites(user) {
     $("#result").on("click", ".favorite", function () {
@@ -30,11 +30,6 @@ function addFavorites(user) {
         // return addFavorite
     })
 }
-
-$(document).ready(function (user) {
-    addFavorites(user)
-})
-
 
 function logout() {
     firebase.auth().signOut()
