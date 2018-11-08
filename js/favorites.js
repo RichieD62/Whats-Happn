@@ -1,6 +1,8 @@
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
 
+var addFavorite = ''
+
 firebase.auth().onAuthStateChanged(function () {
     var userId = firebase.auth().currentUser.uid;
 
@@ -12,7 +14,7 @@ firebase.auth().onAuthStateChanged(function () {
 
 function addFavorites() {
     $(".favorite").on("click", function () {
-        var addFavorite = $(this).parent().parent()
+        addFavorite = $(this).parent().parent()
         console.log(addFavorite)
 
         return addFavorite
