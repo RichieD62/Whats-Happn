@@ -10,7 +10,7 @@ function submit() {
         var userZip = $("#zip-code").val()
         var queryURL = "https://api.seatgeek.com/2/events?venue.postal_code=" + userZip + "&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&";
         
-        if (userInput === null && isNaN(userZip) || userZip.length !== 5) {
+        if (userInput === null && isNaN(userZip) || userInput === null && userZip.length !== 5) {
             console.log("nope");
             $(modal).css("display", "block");
             $(span).on("click", function(){
