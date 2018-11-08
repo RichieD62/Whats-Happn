@@ -13,16 +13,17 @@ firebase.auth().onAuthStateChanged(function (user) {
         })
     }
     // }
+    return user
 })
 
 function addFavorites() {
     $("#result").on("click", ".favorite", function () {
-        var addFavorite = $(this).parent().parent()
+        var addFavorite = $(this).parent().parent().parent()
         console.log(addFavorite)
-        var user_id = firebase.auth().currentUser.uid
+        var userId = user.uid
 
         favorites.push(addFavorite)
-        firebase.database().ref('users/' + user_id).set({
+        firebase.database().ref('users/' + userId).set({
             favorties: favorites
         })
         // firebase.database().push
