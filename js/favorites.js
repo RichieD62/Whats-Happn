@@ -4,12 +4,14 @@
 var addFavorite = null
 
 firebase.auth().onAuthStateChanged(function (user) {
-    console.log("user: " + user)
+    console.dir(user)
     // if (user != null) {
-    // firebase.database().ref('users/' + ).set({
-    //     userId: firebase.auth().currentUser.uid,
-    //     favorties: addFavorite
-    // })
+    if (user) {
+        firebase.database().ref('users/' + user.uid).set({
+            userId: user.uid,
+            favorties: addFavorite
+        })
+    }
     // }
 })
 
