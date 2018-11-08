@@ -8,12 +8,12 @@ var userId = firebase.auth().currentUser.uid;
 firebase.auth().onAuthStateChanged(function () {
 
     console.log(user)
-    if (user != null) {
+    // if (user != null) {
         firebase.database().ref('users/' + userId).set({
-            userId: userId,
+            userId: firebase.auth().currentUser.uid,
             favorties: addFavorite
         })
-    }
+    // }
 })
 
 function addFavorites() {
