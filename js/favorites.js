@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     return user
 })
 
-function addFavorites() {
+function addFavorites(user) {
     $("#result").on("click", ".favorite", function () {
         var addFavorite = $(this).parent().parent().parent()
         console.log(addFavorite)
