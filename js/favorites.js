@@ -31,7 +31,7 @@ function addFavorites(user) {
     })
 }
 
-$(document).ready(function () {
+$(document).ready(function (user) {
     addFavorites(user)
 })
 
