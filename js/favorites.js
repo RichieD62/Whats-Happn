@@ -2,10 +2,11 @@
 // use them in Security and Firebase Rules, and show profiles
 
 var addFavorite = null
+var user = firebase.auth().currentuser;
+
 
 firebase.auth().onAuthStateChanged(function () {
-    var user = firebase.auth().currentuser;
-    var userId = user.uid;
+    var userId = firebase.auth().currentuser.uid;
 
     console.log(user)
     if (user != null) {
