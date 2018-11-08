@@ -32,7 +32,7 @@ function addFavorites(user) {
 }
 
 $(document).ready(function () {
-    addFavorites()
+    addFavorites(user)
 })
 
 
