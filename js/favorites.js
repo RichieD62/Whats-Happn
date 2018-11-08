@@ -18,3 +18,8 @@ function addFavorites() {
         return addFavorite
     })
 }
+function logout() {
+    firebase.auth().signOut()
+}
+
+$("#myBtn2").on("click", logout())
