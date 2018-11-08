@@ -18,10 +18,5 @@ function addFavorites() {
         newFavorites = $("#favorites").html()
         console.log(newFavorites)
 
-        document.cookie = "gif=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-        document.cookie = "gif=" + newFavorites + ";";
-        readCookies(newFavorites)
-
-
     })
 }
