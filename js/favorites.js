@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 function addFavorites(user) {
     $("#result").on("click", ".favorite", function () {
-        var addFavorite = JSON.stringify($(this).parent().parent().parent())
+        var addFavorite = JSON.stringify($(this).parent().parent())
         console.log(addFavorite)
         var userId = user.uid
 
