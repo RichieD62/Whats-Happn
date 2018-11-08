@@ -1,13 +1,13 @@
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
 
-var addFavorite = ''
+var addFavorite = null
 var user = firebase.auth().currentuser;
 
 firebase.auth().onAuthStateChanged(function () {
-    if (user != null) {
-        var userId = firebase.auth().currentUser.uid;
+    var userId = firebase.auth().currentUser.uid;
 
+    if (user != null) {
         firebase.database().ref('users/' + userId).set({
             userId: userId,
             favorties: addFavorite
