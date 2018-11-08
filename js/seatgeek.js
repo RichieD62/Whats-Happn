@@ -50,7 +50,7 @@ function cardGenerator(event) {
 
     HTMLTemplate += `
     <div class="col-md-4 mt-4">
-         <div class="card">
+         <div class="card" origin="Seatgeek" eventCode=${event.id} name=${event.name}>
               <div class="card-body">
                    <img class="img-fluid mb-2" src="https://via.placeholder.com/200"> 
               </div>
