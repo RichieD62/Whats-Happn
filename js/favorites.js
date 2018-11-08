@@ -15,8 +15,10 @@ firebase.auth().onAuthStateChanged(function (user) {
     // }
 })
 
+
+
 function addFavorites() {
-    $(".favorite").on("click", function () {
+    $("#result").on("click", ".favorite", function () {
         var addFavorite = $(this).parent().parent()
         console.log(addFavorite)
         var user_id = firebase.auth().currentUser.uid
