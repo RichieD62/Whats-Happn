@@ -1,16 +1,18 @@
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
-function writeUserData(userId, name, email) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email
-    });
-  }
 
-  //Get the current userID
-var userId = firebase.auth().currentUser.uid;
+firebase.auth().onAuthStateChanged(function () {
+    var userId = firebase.auth().currentUser.uid;
+
+    firebase.database().ref('users/' + userId).set({
+        username: name,
+        email: email,
+        userId: userId
+    })
+})
+//Get the current userID
 //Get the user data
-return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
     //Do something with your user data located in snapshot
 });
 
