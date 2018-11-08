@@ -4,11 +4,11 @@
 var addFavorite = null
 
 firebase.auth().onAuthStateChanged(function () {
-
+    console.log("Firebase.auth().currentUser: " + firebase.auth().currentUser)
     var user = firebase.auth().currentUser;
     var userId = firebase.auth().currentUser.uid;
 
-    console.log(user)
+    console.log("user: " + user)
     // if (user != null) {
     firebase.database().ref('users/' + userId).set({
         userId: firebase.auth().currentUser.uid,
