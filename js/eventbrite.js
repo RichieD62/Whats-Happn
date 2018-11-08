@@ -75,8 +75,7 @@ $(document).ready(function () {
                                        <p>${eventInfo.description.text.substring(0, 200)}...</p>
                                        <span class="badge badge-primary">Date & Time: ${eventInfo.start.local}</span>
                                        <a href="${eventInfo.url}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
-                                       <a href=${eventInfo.url}"target="_blank" class="btn btn-alert alert-danger btn-block mt-4">Add To Favorites</a>
-                                       
+                                       <button class="favorite">Add To Favorites</a>                      
                                   </div>
                              </div>
                         </div>

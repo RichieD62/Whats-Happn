@@ -51,7 +51,7 @@ function cardGenerator(event) {
 
                         <a href="${event.tickets}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
 
-                        <a href=${event.tickets}"target="_blank" class="btn btn-alert alert-danger btn-block mt-4">Add To Favorites</a>
+                        <button class="favorite">Add To Favorites</a>
                         
                    </div>
               </div>
