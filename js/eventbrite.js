@@ -14,6 +14,7 @@ $(document).ready(function () {
             // Wait for response and return as json
 
             const events = await eventsResponse.json();
+            console.log(events)
 
             // const events2 = await eventsResponse2.json();
 
@@ -64,7 +65,7 @@ $(document).ready(function () {
             events.forEach(eventInfo => {
                 HTMLTemplate += `
                    <div class="col-md-4 mt-4">
-                        <div class="card">
+                        <div class="card" origin="Eventbrite" eventCode=${eventInfo.id} name=${eventInfo.name.text}>
                              <div class="card-body">
                                   <img class="img-fluid mb-2" src="${eventInfo.logo !== null ? eventInfo.logo.url : ''}"> 
                              </div>
