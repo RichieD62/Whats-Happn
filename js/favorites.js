@@ -10,11 +10,6 @@ firebase.auth().onAuthStateChanged(function () {
         userId: userId
     })
 })
-//Get the current userID
-//Get the user data
-return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
-    //Do something with your user data located in snapshot
-});
 
 function addFavorites() {
     $(".favorite").on("click", function () {
