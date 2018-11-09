@@ -28,6 +28,9 @@ function submit() {
                         address: response.events[i].venue.address,
                         tickets: response.events[i].url
                     };
+
+                    cardGenerator(event)
+
                 };
             });
         } else {
@@ -40,6 +43,7 @@ function submit() {
     })
 
 }
+
 
 function cardGenerator(event) {
     let HTMLTemplate = ''
@@ -71,13 +75,6 @@ function cardGenerator(event) {
 
 `;
     $("#result").prepend(HTMLTemplate)
-}
-
-function deleteEvent () {
-    console.log('foo')
-    $("#result").on("click", ".remove", function () {
-        $("#toggle").toggle("fade");
-    });
 }
 
 $(document).ready(submit)
