@@ -21,7 +21,6 @@ function submit() {
                 for (var i = 0; i < response.events.length; i++) {
 
                     var event = {
-                        id: response.events[i].id,
                         name: response.events[i].title,
                         dateTime: response.events[i].datetime_local,
                         venue: response.events[i].venue.name,
@@ -63,11 +62,7 @@ function cardGenerator(event) {
 
                         <a href="${event.tickets}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
 
-                        <button class="btn btn-secondary btn-block mt-1 favorite">Add To Favorites</button>
-
-                        <button class="btn btn-danger btn-block mt-1 remove">Remove</button>
-
-                        
+                        <button class="btn btn-secondary btn-block mt-1 favorite">Add To Favorites</button>                        
                    </div>
               </div>
          </div>
