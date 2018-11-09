@@ -23,12 +23,10 @@
             $("#tabs2").tabs();
         });
     </script>
-
     <link rel="stylesheet" href="css/style.css">
     <script src="js/config.js"></script>
     <script src="js/login.js"></script>
     <script src="js/favorites.js"></script>
-    <script src="js/generateFavorites.js"></script>
     <script src="js/eventbrite.js"></script>
     <script src="js/seatgeek.js"></script>
 
@@ -48,7 +46,7 @@
         <div id="tabs1">
             <ul>
                 <li><a href="#index">Search</a></li>
-                <li><a href="#favorites">Favorites</a></li>
+                <li><a href="#favoritesSection">Favorites</a></li>
             </ul>
             <div id="index">
                 <div class="row search-wrapper">
@@ -101,9 +99,12 @@
                 </div>
                 <div id="result" class="row mt-5"></div>
             </div>
-            <div id="favorites">
+            <div id="favoritesSection">
                 <div class="row">
-                    <div class="col-md-12" id="favorites"></div>
+                    <div class="container">
+                        <div class="row" id="favorites">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
