@@ -53,7 +53,7 @@ function cardGenerator(event) {
     <div class="col-md-4 mt-4">
          <div class="card" origin="Seatgeek" eventCode=${event.id} name=${event.name}>
               <div class="card-body">
-                   <img class="img-fluid mb-2" src="https://via.placeholder.com/200"> 
+              <img class="img-fluid pl-4 ml-4 mb-2" src="https://via.placeholder.com/200"> 
               </div>
               <div class="card-body">
                    <div class="card-text">
@@ -64,7 +64,7 @@ function cardGenerator(event) {
 
                         <a href="${event.tickets}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
 
-                        <button class="favorite">Add To Favorites</a>
+                        <button class="btn btn-secondary btn-block mt-1">Add To Favorites</a>
                         
                    </div>
               </div>

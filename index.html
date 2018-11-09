@@ -6,12 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What's Happ'n</title>
+
     <link rel="stylesheet" href="css/bootstrap.css">
+
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css">
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+    <script>
+        $( function() {
+          $( "#tabs2" ).tabs();
+        } );
+        </script>
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/config.js"></script>
     <script src="js/login.js"></script>
@@ -21,8 +32,8 @@
 
 
 
-    <div id="skyline">
-        <div class="container">
+    <div class="container">
+        <div class="jumbotron" id="skyline">
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -32,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="container search-wrapper">
+        <div class="row search-wrapper">
             <div id="search-events" class="card card-body">
                 <div class="row">
                     <div class="col-md-5"></div>
@@ -41,75 +52,49 @@
                     </div>
                     <div class="col-md-5"></div>
                 </div>
-                <h1 class="text-center">What's Happ'n?</h1>
-                <h3 class="text-center">Search for Events by Name or City</h3>
-                <div class="form-group">
-                    <label for="event-name">Search by Name or City</label>
-                    <input type="text" id="event-name" class="form-control" placeholder="Search By Name or City">
-                </div>
+                <h1 class="text-center pt-3 pb-2">What's Happ'n In Your Area?</h1>
+                <div id="tabs2">
+                    <ul>
+                        <li><a href="#fragment-1">Category, Name and City</a></li>
+                        <li><a href="#fragment-2">Zip Code</a></li>
+                    </ul>
+                    <div id="fragment-1">
+                        <h3 class="text-center">Search for Events by Name or City</h3>
 
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select class="form-control" id="category"></select>
-                </div>
-
-                <hr>
-                <br>
-
-                <h3 class="text-center">Search For Events by Zip Code</h3>
-
-                <div class="form-group">
-                    <label for="zip">Zip Code</label>
-                    <input type="text" id="zip-code" class="form-control" placeholder="Search By Zip Code">
-                </div>
-
-
-
-                <div class="form-group">
-                    <input type="submit" class="mt-5 form-control btn btn-success" id="submitBtn" value="Search">
-                </div>
-                <div class="container">
-                    <div id="myModal2" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h1 class="text-center">Please enter a valid zip code</h1>
+                        <div class="form-group">
+                            <label for="event-name">Search by Name or City</label>
+                            <input type="text" id="event-name" class="form-control" placeholder="Search By Name or City">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" id="category"></select>
                         </div>
                     </div>
+                    <div id="fragment-2">
+
+                        <h3 class="text-center">Search For Events by Zip Code</h3>
+
+                        <div class="form-group">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip-code" class="form-control" placeholder="Search By Zip Code">
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <input type="submit" class="mt-5 form-control btn btn-success" id="submitBtn" value="Search">
+                        </div>
                 </div>
-
             </div>
-
-        </div>
-
-        <div id="result" class="row mt-5"></div>
-    </div>
-
-    <div class="container">
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-md-4"> </div>
-            <div class="col-md-4" id="loginDiv">
-                <h4>Login to save your favorite events</h4>
-            </div>
-            <div class="col-md-4"> </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5"> </div>
-            <div class="col-md-2">
-                <button id="myBtn">Login</button>
-            </div>
-            <button id="myBtn2">Logout</button>
-        </div>
-            <div class="col-md-5"> </div>
         </div>
     </div>
-
+    <div id="myModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="text-center">Error: Please enter a valid zip code</h1>
+        </div>
+    </div>
+    </div>
     <div id="result" class="row mt-5"></div>
     </div>
-
-    <footer class="mt-5 p-3 text-center bg-primary">
-    </footer>
     </body>
 
 </html>

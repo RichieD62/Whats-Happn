@@ -72,12 +72,12 @@ $(document).ready(function () {
                              <div class="card-body">
                                   <div class="card-text">
                                        <h2 class="text-center card-title">${eventInfo.name.text}</h2>
-                                       <p class="lead text-info">Event Information:</p>
+                                       <p clxass="lead text-info">Event Information:</p>
                                        <p>${eventInfo.description.text.substring(0, 200)}...</p>
                                        <span class="badge badge-primary">Date & Time: ${eventInfo.start.local}</span>
                                        <a href="${eventInfo.url}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
-                                       <button class="favorite">Add To Favorites</a>                      
-                                  </div>
+                                       <button class="btn btn-secondary btn-block mt-1">Add To Favorites</a>
+                                       </div>
                              </div>
                         </div>
                    </div>
