@@ -2,29 +2,24 @@ function submit() {
 
     var modal = $("#myModal2")
     var span = $(".close");
+    var eventName = $("#event-name")
 
     $("#submitBtn").on("click", function (event) {
         event.preventDefault();
 
-        var userInput = $("#event-name").val()
+
         var userZip = $("#zip-code").val()
         var queryURL = "https://api.seatgeek.com/2/events?venue.postal_code=" + userZip + "&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&";
-        
-        if (userInput === null && isNaN(userZip) || userInput === null && userZip.length !== 5) {
-            console.log("nope");
-            $(modal).css("display", "block");
-            $(span).on("click", function(){
-                $(modal).css("display", "none");
-            })
-        } else {
+
+        if (eventName.val().length > 0 || (!isNaN(userZip) && userZip.length === 5)) {
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
-    
-                for (var i=0; i<response.events.length; i++){
-    
+
+                for (var i = 0; i < response.events.length; i++) {
+
                     var event = {
                         id: response.events[i].id,
                         name: response.events[i].title,
@@ -33,18 +28,25 @@ function submit() {
                         address: response.events[i].venue.address,
                         tickets: response.events[i].url
                     };
-    
+
                     cardGenerator(event)
-                    
+
                 };
             });
-            //html input pattern attribute
+        } else {
+            console.log("nope");
+            $(modal).css("display", "block");
+            $(span).on("click", function () {
+                $(modal).css("display", "none");
+            })
         }
 
 
-       
+        //html input pattern attribute
     })
+
 }
+
 
 function cardGenerator(event) {
     let HTMLTemplate = ''
@@ -72,7 +74,7 @@ function cardGenerator(event) {
     </div>
 
 `;
-$("#result").prepend(HTMLTemplate)
+    $("#result").prepend(HTMLTemplate)
 }
 
 $(document).ready(submit)
