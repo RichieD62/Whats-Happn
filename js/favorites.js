@@ -1,7 +1,7 @@
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
 
-// var favorites = []
+var favorites = []
 
 // firebase.auth().onAuthStateChanged(function (user) {
 //     console.dir(user)
@@ -30,17 +30,18 @@ function addFavorites() {
         console.log(addFavorite)
         // var userId = user.uid
 
-        // favorites.push(addFavorite)
+        favorites.push(addFavorite)
         // firebase.database().ref('users/' + userId).set({
-        //     favorties: favorites
-        // })
-        // firebase.database().push
-        // return addFavorite
+        firebase.database().ref('users/foo').set({
+
+            favorites: favorites
+        })
+        firebase.database().push
+        return addFavorite
     })
 }
 
 $(addFavorites)
-
 
 function logout() {
     firebase.auth().signOut()

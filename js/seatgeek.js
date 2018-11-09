@@ -6,11 +6,11 @@ function submit() {
     $("#submitBtn").on("click", function (event) {
         event.preventDefault();
 
-        
+        var userInput = $("#event-name").val()
         var userZip = $("#zip-code").val()
         var queryURL = "https://api.seatgeek.com/2/events?venue.postal_code=" + userZip + "&client_id=MTM3MzQ5ODJ8MTU0MTAzNTk1NC4z&client_secret=bafaccd7c9def60e73e3d2fcfcca15297124b926e7f941a51303a63dc998c0f3&";
         
-        if (isNaN(userZip) || userZip.length !== 5) {
+        if (userInput === null && isNaN(userZip) || userInput === null && userZip.length !== 5) {
             console.log("nope");
             $(modal).css("display", "block");
             $(span).on("click", function(){
@@ -26,6 +26,7 @@ function submit() {
                 for (var i=0; i<response.events.length; i++){
     
                     var event = {
+                        id: response.events[i].id,
                         name: response.events[i].title,
                         dateTime: response.events[i].datetime_local,
                         venue: response.events[i].venue.name,
@@ -47,7 +48,7 @@ function submit() {
 
 function cardGenerator(event) {
     let HTMLTemplate = ''
-
+    
     HTMLTemplate += `
     <div class="col-md-4 mt-4">
          <div class="card" origin="Seatgeek" eventCode=${event.id} name=${event.name}>
