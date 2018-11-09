@@ -3,33 +3,45 @@
 
 var favorites = []
 
-firebase.auth().onAuthStateChanged(function (user) {
-    console.dir(user)
-    // if (user != null) {
-    if (user) {
-        firebase.database().ref('users/' + user.uid).set({
-            userId: user.uid,
-            favorties: favorites
-        })
-        addFavorites(user)
-    }
-});
+// firebase.auth().onAuthStateChanged(function (user) {
+//     console.dir(user)
+//     // if (user != null) {
+//     if (user) {
+//         firebase.database().ref('users/' + user.uid).set({
+//             userId: user.uid,
+//             favorties: favorites
+//         })
+//         addFavorites(user)
+//     }
+// });
 
 
-function addFavorites(user) {
+// function addFavorites(user) {
+function addFavorites() {
     $("#result").on("click", ".favorite", function () {
-        var addFavorite = JSON.stringify($(this).parent().parent())
+        console.log("foo")
+        var card = $(this).parent().parent().parent()
+        var addFavorite = {
+            name: $(card).attr("name"),
+            source: $(card).attr("origin"),
+            id: $(card).attr("eventCode")
+        }
+
         console.log(addFavorite)
-        var userId = user.uid
+        // var userId = user.uid
 
         favorites.push(addFavorite)
-        firebase.database().ref('users/' + userId).set({
-            favorties: favorites
+        // firebase.database().ref('users/' + userId).set({
+        firebase.database().ref('users/foo').set({
+
+            favorites: favorites
         })
-        // firebase.database().push
-        // return addFavorite
+        firebase.database().push
+        return addFavorite
     })
 }
+
+$(addFavorites)
 
 function logout() {
     firebase.auth().signOut()

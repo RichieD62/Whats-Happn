@@ -21,6 +21,7 @@ function submit() {
                 for (var i = 0; i < response.events.length; i++) {
 
                     var event = {
+                        id: response.events[i].id,
                         name: response.events[i].title,
                         dateTime: response.events[i].datetime_local,
                         venue: response.events[i].venue.name,
@@ -49,10 +50,10 @@ function submit() {
 
 function cardGenerator(event) {
     let HTMLTemplate = ''
-
+    
     HTMLTemplate += `
     <div class="col-md-4 mt-4">
-         <div class="card">
+         <div class="card" origin="Seatgeek" eventCode=${event.id} name=${event.name}>
               <div class="card-body">
                    <img class="img-fluid mb-2" src="https://via.placeholder.com/200"> 
               </div>
