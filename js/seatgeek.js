@@ -39,8 +39,6 @@ function submit() {
                 $(modal).css("display", "none");
             })
         }
-
-        //html input pattern attribute
     })
 
 }
@@ -51,21 +49,20 @@ function cardGenerator(event) {
 
     HTMLTemplate += `
     <div class="col-md-4 mt-4">
-         <div class="card">
-              <div class="card-body">
+    <div class="card" origin="Seatgeek" eventCode=${event.id} name=${event.name}>
+    <div class="card-body">
                    <img class="img-fluid mb-2" src="https://trunited.com/media/catalog/product/s/e/seat_geek_logo_5.jpg"> 
               </div>
               <div class="card-body">
                    <div class="card-text">
-                        <h2 class="text-center card-title">${event.name}</h2>
+                        <h2 class="text-center card-title">${event.name}</h2> 
                         <p class="lead text-info">Event Information:</p>
                         <p>${event.venue}...</p>
                         <span class="badge badge-primary">Date & Time: ${event.dateTime}</span>
 
                         <a href="${event.tickets}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>
 
-                        <a href=${event.tickets}"target="_blank" class="btn btn-alert alert-danger btn-block mt-4">Add To Favorites</a>
-                        
+                        <button class="btn btn-secondary btn-block mt-1 favorite">Add To Favorites</button>                        
                    </div>
               </div>
          </div>
