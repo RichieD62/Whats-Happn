@@ -12,7 +12,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             userId: user.uid,
             favorties: favorites
         })
-        $(addFavorites(user))
+        addFavorites(user)
+        
     }
 });
 
