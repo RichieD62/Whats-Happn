@@ -121,11 +121,11 @@ $(document).ready(function () {
             // Remove the alert after 3 seconds
             setTimeout(() => {
                 this.removeMessage();
-            }, 3000);
+            }, 5000);
         }
         // Remove the message
         removeMessage() {
-            const alert = document.querySelector('.alert');
+            const alert = document.querySelector('.modal-body');
             if (alert) {
                 alert.remove();
             }
@@ -159,7 +159,7 @@ $(document).ready(function () {
                         ui.displayEvents(eventsList);
                     } else {
                         // There are no events, print a message
-                        ui.printMessage('No Results Found', 'text-center alert alert-danger mt-4');
+                        ui.printMessage('No Results Found, Please Refine Your Search', 'text-center modal-body mt-4');
                     }
                 })
 
