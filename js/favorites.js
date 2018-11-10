@@ -6,9 +6,9 @@ var favorites = []
 var user = firebase.auth().currentuser;
 
 firebase.auth().onAuthStateChanged(function (user) {
-    console.dir(user)
+    console.log("user1:" + user)
     // if (user != null) {
-    if (user) {
+    if ("user2:" + user) {
         console.log(user)
         firebase.database().ref('users/' + user.uid).set({
             userId: user.uid,
@@ -115,6 +115,8 @@ query.on("value", function (snapshot) {
 });
 
 function seatGeekCardGenerator(event) {
+    console.log('foo')
+
     let HTMLTemplate = ''
 
     HTMLTemplate += `
@@ -139,6 +141,7 @@ function seatGeekCardGenerator(event) {
 }
 
 function eventbriteCardGenerator(event) {
+    console.log('foo')
     let HTMLTemplate = ''
     HTMLTemplate += `
     <div class="col-md-4 mt-4 mr-0">
