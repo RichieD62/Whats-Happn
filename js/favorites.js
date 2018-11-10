@@ -135,7 +135,7 @@ function seatGeekCardGenerator(event) {
          </div>
     </div>
 `;
-    $("#favoritesSection").prepend(HTMLTemplate)
+    $("#favorites").prepend(HTMLTemplate)
 }
 
 function eventbriteCardGenerator(event) {
@@ -159,5 +159,5 @@ function eventbriteCardGenerator(event) {
     </div>
     
     `;
-    $("#favoritesSection").prepend(HTMLTemplate)
+    $("#favorites").prepend(HTMLTemplate)
 };
