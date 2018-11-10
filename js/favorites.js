@@ -20,7 +20,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 
-
 function addFavorites(user) {
 // function addFavorites() {
     $("#result").on("click", ".favorite", function () {
@@ -41,8 +40,7 @@ function addFavorites(user) {
 
             favorites: favorites
         })
-        firebase.database().push
-
+        
         return addFavorite
     })
 }
@@ -137,7 +135,7 @@ function seatGeekCardGenerator(event) {
          </div>
     </div>
 `;
-    $("#favorites").prepend(HTMLTemplate)
+    $("#favoritesSection").prepend(HTMLTemplate)
 }
 
 function eventbriteCardGenerator(event) {
@@ -161,5 +159,5 @@ function eventbriteCardGenerator(event) {
     </div>
     
     `;
-    $("#favorites").prepend(HTMLTemplate)
+    $("#favoritesSection").prepend(HTMLTemplate)
 };
