@@ -21,6 +21,7 @@ function submit() {
                 for (var i = 0; i < response.events.length; i++) {
 
                     var event = {
+                        id: response.events[i].id,
                         name: response.events[i].title,
                         dateTime: response.events[i].datetime_local,
                         venue: response.events[i].venue.name,

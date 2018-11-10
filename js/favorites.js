@@ -4,24 +4,24 @@
 var userId = ''
 var favorites = []
 
-firebase.auth().onAuthStateChanged(function () {
-    var user = firebase.auth().currentuser;
-    console.log("user1:" + user)
-    // if (user != null) {
-    if ("user2:" + user) {
-        console.log(user)
-        firebase.database().ref('users/' + user.uid).set({
-            userId: user.uid,
-            favorties: favorites
-        })
-        addFavorites(user)
+// firebase.auth().onAuthStateChanged(function () {
+//     var user = firebase.auth().currentuser;
+//     console.log("user1:" + user)
+//     // if (user != null) {
+//     if ("user2:" + user) {
+//         console.log(user)
+//         firebase.database().ref('users/' + user.uid).set({
+//             userId: user.uid,
+//             favorties: favorites
+//         })
+//         addFavorites(user)
         
-    }
-});
+//     }
+// });
 
 
-function addFavorites(user) {
-// function addFavorites() {
+// function addFavorites(user) {
+function addFavorites() {
     $("#result").on("click", ".favorite", function () {
         console.log("foo")
         var card = $(this).parent().parent().parent()
@@ -32,11 +32,11 @@ function addFavorites(user) {
         }
 
         console.log(addFavorite)
-        userId = user.uid
+        // userId = user.uid
 
         favorites.push(addFavorite)
-        firebase.database().ref('users/' + userId).set({
-        // firebase.database().ref('users/foo').set({
+        // firebase.database().ref('users/' + userId).set({
+        firebase.database().ref('users/foo').set({
 
             favorites: favorites
         })
@@ -47,17 +47,17 @@ function addFavorites(user) {
 
 $(addFavorites)
 
-function logout() {
-    firebase.auth().signOut()
-}
+// function logout() {
+//     firebase.auth().signOut()
+// }
 
-$("#myBtn2").on("click", logout())
+// $("#myBtn2").on("click", logout())
 
 // Loop through users in order with the forEach() method. The callback
 // provided to forEach() will be called synchronously with a DataSnapshot
 // for each child:
-// var query = firebase.database().ref("users/foo/favorites").orderByKey();
-var query = firebase.database().ref("users/" + userId + "/favorites").orderByKey();
+var query = firebase.database().ref("users/foo/favorites").orderByKey();
+// var query = firebase.database().ref("users/" + userId + "/favorites").orderByKey();
 query.on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
         var key = childSnapshot.key;
@@ -103,7 +103,8 @@ query.on("value", function (snapshot) {
                     venue: response.venue,
                     name: response.name.text,
                     description: response.description.text,
-                    startTime: response.start.local
+                    startTime: response.start.local,
+                    url: response.url
                 };
 
                 console.log(events)
@@ -114,24 +115,24 @@ query.on("value", function (snapshot) {
     });
 });
 
-function seatGeekCardGenerator(event) {
+function seatGeekCardGenerator(events) {
     console.log('foo')
 
     let HTMLTemplate = ''
 
     HTMLTemplate += `
     <div class="col-md-4 mt-4 mr-0">
-         <div class="card" origin="Seatgeek" eventCode=${event.id} name=${event.name}>
+         <div class="card" origin="Seatgeek" eventCode=${events.id} name=${events.name}>
               <div class="card-body">
-                   <img class="img-fluid pl-4 ml-4 mb-2" src="https://via.placeholder.com/200"> 
+                   <img class="img-fluid mb-2" src="https://trunited.com/media/catalog/product/s/e/seat_geek_logo_5.jpg"> 
               </div>
               <div class="card-body">
                    <div class="card-text">
-                        <h2 class="text-center card-title">${event.name}</h2>
+                        <h2 class="text-center card-title">${events.name}</h2>
                         <p class="lead text-info">Event Information:</p>
-                        <p>${event.venue}...</p>
-                        <span class="badge badge-primary">Date & Time: ${event.dateTime}</span>
-                        <a href="${event.tickets}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>                        
+                        <p>${events.venue}...</p>
+                        <span class="badge badge-primary">Date & Time: ${events.dateTime}</span>
+                        <a href="${events.tickets}" target="_blank" class="btn btn-primary btn-block mt-4">Get Tickets</a>                        
                    </div>
               </div>
          </div>
