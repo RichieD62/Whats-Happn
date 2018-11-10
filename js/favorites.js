@@ -3,6 +3,7 @@
 
 var userId = ''
 var favorites = []
+var user = null
 
 firebase.auth().onAuthStateChanged(function (user) {
     console.dir(user)
