@@ -3,10 +3,9 @@
 
 var userId = ''
 var favorites = []
-var user = null
+var user = firebase.auth().currentuser;
 
 firebase.auth().onAuthStateChanged(function (user) {
-    var user = firebase.auth().currentuser;
     console.dir(user)
     // if (user != null) {
     if (user) {
