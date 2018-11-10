@@ -147,7 +147,7 @@ function eventbriteCardGenerator(event) {
     <div class="col-md-4 mt-4 mr-0">
         <div class="card" origin="Eventbrite" eventCode=${event.id} name=${event.name}>
                 <div class="card-body">
-                    <img class="img-fluid mb-2" src="${event.logo !== null ? event.logo : ''}"> 
+                    <img class="img-fluid mb-2" src="${event.logo}"> 
                 </div>
                 <div class="card-body">
                     <div class="card-text">
